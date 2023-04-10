@@ -1,3 +1,4 @@
+import CreatePost from "../Modals/createPost";
 
 interface Props {
     authenticated: boolean
@@ -40,7 +41,7 @@ function Navbar(props: Props) {
                     {
                         props.authenticated ? (
                             <div className="flex space-x-4">
-                                <a className="btn btn-primary text-white">Create post</a>
+                                <label htmlFor="new-post-modal" className="btn btn-primary text-white">Create post</label>
                                 <div className="dropdown dropdown-end dropdown-hover">
                                     <label className="avatar" tabIndex={0}>
                                         <div className="w-12 rounded-full hover:ring hover:ring-primary">
@@ -67,6 +68,7 @@ function Navbar(props: Props) {
             </div>
         </div>
     )
+
 }
 
 export default Navbar;
