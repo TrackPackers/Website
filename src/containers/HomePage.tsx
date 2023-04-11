@@ -7,7 +7,7 @@ function HomePage() {
       <div>
         <Navbar authenticated={true} />
         <CreatePostModal/>
-        <h1>hello</h1>
+        <h1>Hello</h1>
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React, { FormEventHandler, useEffect, useState } from "react";
+import createNewPost from "../../utils/API/createNewPost";
 
 function CreatePostModal() {
 
@@ -25,6 +26,7 @@ function CreatePostModal() {
         if(postMessage === '') return;
 
         console.log('Works: ', postMessage);        
+        createNewPost({name: "testUserName", message: postMessage})
         setModalOpen(false);
     }
 

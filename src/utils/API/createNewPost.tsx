@@ -1,6 +1,7 @@
 import axios from 'redaxios';
 
 interface Request {
+    name: string;
     message: string;
 }
 
@@ -10,7 +11,7 @@ interface Response{
 
 function createNewPost(data: Request) {
     return axios.post<Response>(
-        `${process.env.REACT_APP_GATEWAY_URL}/contentwriter/new`, data,
+        `http://localhost/contentwriter/create`, data,
     );
 }
 
