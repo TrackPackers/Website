@@ -18,3 +18,27 @@ jobs:
 
       - name: Run eslint,prettier with airbnb
         run: npm run lint
+  
+  codeql:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'javascript']
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Start CodeQL
+        uses: github/codeql-action/init@v1
+        with:
+          languages: ${{ matrix.language }}
+        
+      - name: autobuild
+        uses: github/codeql-action/autobuild@v1
+        
+      - name: CodeQL analysis
+        uses: github/codeql-action/analyze@v1
+      
+    
