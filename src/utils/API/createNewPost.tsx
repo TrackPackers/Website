@@ -11,7 +11,7 @@ interface Response{
 
 function createNewPost(data: Request) {
     return axios.post<Response>(
-        `http://localhost/contentwriter/create`, data,
+        `${import.meta.env.VITE_GATEWAY_URL}/contentwriter/create`, data,
     );
 }
 
