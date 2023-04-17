@@ -1,8 +1,6 @@
 name: Lighthouse audit
 
-on:
-  push:
-    branches: [ main ]
+on: [push]
 
 jobs:
   lighthouse:
@@ -10,22 +8,20 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
+        
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          
       - name: Install dependencies
         run: npm install
-
+        
+      - name: Install lighthouse
+        run: npm install -g @lhci/cli
+        
       - name: Build application
-        run: npm run build
-
-      - name: Start development server
         run: npm run dev &
-
-      - name: Wait for server to start
-        run: sleep 5s
-
-      - name: run lighthouse
-        uses: treosh/lighthouse-ci-action@v9
-        with:
-          urls: 'localhost:5173'
-          uploadArtifacts: true
-          temporaryPublicStorage: true
+        
+      - name: Run lighthouse
+        run: lhci autorun
