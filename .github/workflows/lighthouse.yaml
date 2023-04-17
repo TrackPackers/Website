@@ -21,7 +21,10 @@ jobs:
         run: npm install -g @lhci/cli
         
       - name: Build application
-        run: npm run dev &
+        run: npm run build
+        
+      - name: Preview build
+        run: npm run preview &
         
       - name: Run lighthouse
         run: lhci autorun
