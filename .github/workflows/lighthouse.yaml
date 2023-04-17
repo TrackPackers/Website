@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Install dependencies
         run: npm install
@@ -23,13 +23,9 @@ jobs:
       - name: Wait for server to start
         run: sleep 5s
 
-      - name: Run Lighthouse audits
-        run: |
-          npm install -g lighthouse
-          lighthouse http://localhost:5173 --output html --output-path report.html
-
-      - name: Upload report
-        uses: actions/upload-artifact@v2
+      - name: run lighthouse
+        uses: treosh/lighthouse-ci-action@v9
         with:
-          name: lighthouse-report
-          path: report.html
+          urls: 'localhost:5173'
+          uploadArtifacts: true
+          temporaryPublicStorage: true
