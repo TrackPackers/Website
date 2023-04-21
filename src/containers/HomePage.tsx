@@ -7,10 +7,10 @@ import Trending from '../components/HomePage/Trending';
 
 function HomePage() {
   return (
-    <div className="container w-screen h-screen p-0 m-0 mt-24">
+    <div className="container p-0 lg:m-24 lg:h-screen lg:w-screen">
       <Navbar authenticated />
       <CreatePostModal />
-      <div className="grid grid-flow-col grid-cols-3 grid-rows-3 xl:grid-rows-1">
+      <div className="grid flex-wrap w-full grid-flow-col grid-cols-1 grid-rows-3 xl:grid-cols-3 xl:grid-rows-1">
         <Settings />
         <Feed />
         <Trending />

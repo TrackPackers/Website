@@ -24,6 +24,9 @@ function CreatePostModal() {
 
     createNewPost({ name: 'testUserName', message: postMessage });
     setModalOpen(false);
+    setInterval(() => {
+      window.location.reload();
+    }, 500);
   };
 
   return (

@@ -20,7 +20,7 @@ function NewPostsFeed() {
   return (
     <div className="container">
       {posts.length === 0 ? (
-        <h1>NewPostsFeed</h1>
+        <h1 className="text-lg">No new posts available</h1>
       ) : (
         <div className="mt-5">
           {posts.map(function (post, i) {
