@@ -5,6 +5,7 @@ import FeedItem from './FeedItem';
 
 function NewPostsFeed() {
   const [posts, setPosts] = useState<Post[]>([]);
+  const [tries, setTries] = useState(false);
 
   async function getPosts() {
     const newPosts = await getNewestPosts();
@@ -12,10 +13,11 @@ function NewPostsFeed() {
   }
 
   useEffect(() => {
-    if (posts.length === 0) {
+    if (posts.length === 0 && !tries) {
+      setTries(true);
       getPosts();
     }
-  });
+  }, [posts.length, tries]);
 
   return (
     <div className="container">

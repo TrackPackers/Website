@@ -1,12 +1,24 @@
 /* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import { auth } from '../../utils/Firebase/Init';
 
 interface Props {
   handleSwitchButton: void;
 }
 
+const provider = new GoogleAuthProvider();
+
 function Login(props: any) {
   const [showPassword, setShowPassword] = useState(false);
+
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, provider).then((result) => {
+      const { user } = result;
+      console.log(user);
+      window.location.href = '/';
+    });
+  };
 
   return (
     <div className="container w-full h-full lg:w-screen">
@@ -36,6 +48,7 @@ function Login(props: any) {
           <button
             aria-label="Continue with google"
             role="button"
+            onClick={() => signInWithGoogle()}
             className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-10 bg-white"
           >
             <svg
