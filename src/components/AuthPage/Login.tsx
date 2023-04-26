@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 /* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
@@ -130,6 +131,14 @@ function Login(props: any) {
             >
               Login
             </button>
+          </div>
+          <div className="mt-4 text-sm font-medium leading-none text-left cursor-pointer">
+            <a
+              className="text-gray-500"
+              onClick={() => (window.location.href = '/')}
+            >
+              Return back to home
+            </a>
           </div>
         </div>
       </div>

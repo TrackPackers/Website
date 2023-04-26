@@ -7,6 +7,16 @@ interface Props {
 
 function Register(props: any) {
   const [showPassword, setShowPassword] = useState(false);
+  const [userNameValue, setUserNameValue] = useState('');
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserNameValue(e.target.value.replace(/\s/g, ''));
+  };
+  const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === ' ') {
+      e.preventDefault();
+    }
+  };
 
   return (
     <div className="container w-full h-full lg:w-screen">
@@ -41,6 +51,9 @@ function Register(props: any) {
               role="input"
               type="email"
               placeholder="User name"
+              value={userNameValue}
+              onChange={(event) => onChange(event)}
+              onKeyDown={(event) => onKeyDown(event)}
               className="w-full py-3 pl-3 text-xs font-medium leading-none text-gray-800 bg-gray-200 border rounded focus:outline-none"
             />
           </div>
