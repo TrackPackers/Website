@@ -9,7 +9,9 @@ function NewPostsFeed() {
 
   async function getPosts() {
     const newPosts = await getNewestPosts();
-    setPosts(newPosts.data.reverse());
+    if (newPosts.data.length !== null && newPosts.data.length !== undefined) {
+      setPosts(newPosts.data.reverse());
+    }
   }
 
   useEffect(() => {
