@@ -9,7 +9,7 @@ function NewPostsFeed() {
 
   async function getPosts() {
     const newPosts = await getNewestPosts();
-    setPosts(newPosts.data);
+    setPosts(newPosts.data.reverse());
   }
 
   useEffect(() => {

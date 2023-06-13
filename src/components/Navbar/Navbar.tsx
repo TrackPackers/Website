@@ -59,7 +59,7 @@ function Navbar(props: Props) {
                 className="p-2 shadow dropdown-content menu bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <a>@Pieter03</a>
+                  <a>{auth.currentUser?.displayName}</a>
                 </li>
                 <div className="my-0 divider" />
                 <li>
