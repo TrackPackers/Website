@@ -9,7 +9,7 @@ function NewPostsFeed() {
 
   async function getPosts() {
     const newPosts = await getNewestPosts();
-    if (newPosts.data.length !== null && newPosts.data.length !== undefined) {
+    if (Array.isArray(newPosts.data)) {
       setPosts(newPosts.data.reverse());
     }
   }
