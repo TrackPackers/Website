@@ -1,6 +1,6 @@
 describe('Test login page of its functionality', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:5173/auth');
+    cy.visit('http://localhost:4173/auth');
   });
 
   it('Switch between signin and signup page', () => {

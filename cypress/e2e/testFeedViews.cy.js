@@ -2,7 +2,7 @@
 
 describe('Clicking the top button should show correct Text"', () => {
   it('should change the text of another element', () => {
-    cy.visit('http://localhost:5173');
+    cy.visit('http://localhost:4173');
 
     cy.contains('a', 'Top').click();
 
