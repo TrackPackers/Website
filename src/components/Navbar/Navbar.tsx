@@ -1,3 +1,4 @@
+import { auth } from '../../utils/Firebase/Init';
 import CreatePost from '../Modals/createPost';
 
 interface Props {
@@ -58,7 +59,7 @@ function Navbar(props: Props) {
                 className="p-2 shadow dropdown-content menu bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <a>@Pieter03</a>
+                  <a>{auth.currentUser?.displayName}</a>
                 </li>
                 <div className="my-0 divider" />
                 <li>
@@ -69,14 +70,27 @@ function Navbar(props: Props) {
                 </li>
                 <div className="my-0 divider" />
                 <li>
-                  <a>Sign out</a>
+                  <a
+                    onClick={() => {
+                      auth.signOut();
+                    }}
+                  >
+                    Sign out
+                  </a>
                 </li>
               </ul>
             </div>
           </div>
         ) : (
           <div>
-            <a className="text-white btn-primary btn">Login</a>
+            <a
+              className="text-white btn-primary btn"
+              onClick={() => {
+                window.location.href = '/auth';
+              }}
+            >
+              Login
+            </a>
           </div>
         )}
       </div>

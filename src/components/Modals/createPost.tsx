@@ -1,5 +1,6 @@
 import React, { FormEventHandler, useEffect, useState } from 'react';
 import createNewPost from '../../utils/API/createNewPost';
+import { auth } from '../../utils/Firebase/Init';
 
 function CreatePostModal() {
   const [postMessage, setPostMessage] = useState('');
@@ -22,7 +23,10 @@ function CreatePostModal() {
     e.preventDefault();
     if (postMessage === '') return;
 
-    createNewPost({ name: 'testUserName', message: postMessage });
+    createNewPost({
+      name: auth.currentUser!.displayName!,
+      message: postMessage,
+    });
     setModalOpen(false);
     setInterval(() => {
       window.location.reload();

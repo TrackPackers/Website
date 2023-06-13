@@ -28,7 +28,7 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json',
   },
-  plugins: ['react', '@typescript-eslint', 'prettier'],
+  plugins: ['react', '@typescript-eslint', 'prettier', 'cypress'],
   rules: {
     'react/react-in-jsx-scope': 0,
     'react/destructuring-assignment': 0,
